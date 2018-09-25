@@ -29,6 +29,10 @@ public class MasterUserService implements BaseService<User>{
         return null;
     }
 
+    public User findByEmail(String email) {
+        return repository.findByEmail(email);
+    }
+
     @Override
     public void save(User user) {
         repository.save(user);

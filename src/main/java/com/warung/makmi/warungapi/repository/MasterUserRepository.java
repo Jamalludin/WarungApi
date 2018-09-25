@@ -42,6 +42,21 @@ public class MasterUserRepository implements BaseRepository<User> {
         return null;
     }
 
+    public User findByEmail(String email) {
+        User user = new User();
+
+        String sql = "SELECT * FROM m_user WHERE email = ?";
+
+        try {
+            user = (User) jdbcTemplate.queryForObject(sql, new Object[]{email}, new BeanPropertyRowMapper(User.class));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
     @Override
     public void save(User user) {
         String sql = "INSERT INTO m_user \n" +
