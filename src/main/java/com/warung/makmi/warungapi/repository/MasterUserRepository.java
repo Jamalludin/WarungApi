@@ -60,10 +60,10 @@ public class MasterUserRepository implements BaseRepository<User> {
     @Override
     public void save(User user) {
         String sql = "INSERT INTO m_user \n" +
-                "(email, nama_lengkap, password )" +
-                "VALUES(?, ?, ?)";
+                "(email, nama_lengkap, password, role)" +
+                "VALUES(?, ?, ?, ?)";
 
-        jdbcTemplate.update(sql, new Object[]{user.getEmail(), user.getNamaLengkap(), user.getPassword()});
+        jdbcTemplate.update(sql, new Object[]{user.getEmail(), user.getNamaLengkap(), user.getPassword(), user.getRole()});
     }
 
     @Override

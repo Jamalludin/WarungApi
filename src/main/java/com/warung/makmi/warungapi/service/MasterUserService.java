@@ -13,7 +13,6 @@ public class MasterUserService implements BaseService<User>{
     @Autowired
     private MasterUserRepository repository;
 
-
     @Override
     public List<User> findPerPage(String search, Integer limit, Integer offset) {
         return null;
